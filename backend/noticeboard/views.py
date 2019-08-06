@@ -8,7 +8,11 @@ from django_apps.article.models import Article
 from django_apps.article.serializers import ArticleSerializer
 
 
+@swagger_auto_schema(methods=['get', 'post'], request_body=ArticleSerializer)
 class ArticleList(generics.ListAPIView, APIView):
+    """
+    게시글 리스트 조회 및 작성
+    """
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )

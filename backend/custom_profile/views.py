@@ -15,13 +15,16 @@ from custom_profile.forms import SignUpForm
 class ProfileOverall(APIView):  # 자신의 프로필
     """
         본인 프로필 조회 및 수정
-        
+
         ---
         # 내용
             - is_admin : 관리자 여부
             - student_id : 바코드에 있는 학생증 정보
             - class_id : 반 고유 코드 (아두이노 ID)
             - bio : 한줄소개. ex) 선린인터넷고등학교 1학년 3반
+        # 주의 할 점
+        구현상 미숙으로 patch를 할때에는 모든 parameter가 있어야함. 없을시에는 null값으로 들어가게 됨.  
+        즉, is_admin, student_id, class_id, bio 가 요청시에 모두 parameter로 존재해야함.
     """
     def get(self, request):  # 프로필 조회
         if request.user.is_authenticated:
@@ -59,6 +62,19 @@ class ProfileOverall(APIView):  # 자신의 프로필
 
 @api_view(['POST'])
 def sign_up(request):  # 회원가입
+    """
+        회원가입
+
+        ---
+        # 내용
+            - username : 로그인시에 사용할 username
+            - email : 사용자 정보로 들어갈 email
+            - password1 : 패스워드 입력
+            - password2 : 패스워드 확인
+        # 주의 할 점
+        password가 email 혹은 username과 너무 비슷하거나 단순할 경우 Django에서 자체적으로 계정 생성을 차단합니다.  
+        이 경우에는 response에 어떤 부분이 문제인지 기술됩니다.
+    """
     form = SignUpForm(request.POST)
     try:
         User.objects.get(email=request.data.get('email'))
