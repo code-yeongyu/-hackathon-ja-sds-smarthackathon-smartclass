@@ -20,13 +20,13 @@ class ProfileOverall(APIView):  # 자신의 프로필
             except:
                 Profile.objects.create(user=request.user)
                 profile = Profile.objects.get(user=request.user)
+
             return Response(
                 {
-                    'is_admin': Profile.is_admin,
-                    'student_id': Profile.student_id,
-                    'school_class': Profile.school_class,
-                    'class_id': Profile.class_id,
-                    'bio': Profile.bio
+                    'is_admin': profile.is_admin,
+                    'student_id': profile.student_id,
+                    'class_id': profile.class_id,
+                    'bio': profile.bio
                 },
                 status=status.HTTP_200_OK)
         return Response(status=status.HTTP_401_UNAUTHORIZED)
@@ -38,13 +38,10 @@ class ProfileOverall(APIView):  # 자신의 프로필
             except:
                 Profile.objects.create(user=request.user)
                 profile = Profile.objects.get(user=request.user)
-                serializer = ProfileSerializer(profile, data=request.data)
-                import pdb
-                pdb.set_trace()
-                if serializer.is_valid():
-                    serializer.save()
-                    return Response({'working': True},
-                                    status=status.HTTP_200_OK)
+            serializer = ProfileSerializer(profile, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(status=status.HTTP_200_OK)
             return Response(serializer.errors,
                             status=status.HTTP_406_NOT_ACCEPTABLE)
         return Response(status=status.HTTP_401_UNAUTHORIZED)

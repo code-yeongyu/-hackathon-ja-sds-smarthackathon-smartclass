@@ -11,6 +11,6 @@ class Profile(models.Model):
                                 on_delete=models.CASCADE)
     is_admin = models.BooleanField(default=False)
     student_id = models.CharField(
-        max_length=50, null=True)  # student id from school id barcode
+        max_length=50)  # student id from school id barcode
     class_id = models.CharField(max_length=50)  # the id of arduino
     bio = models.CharField(max_length=50)
