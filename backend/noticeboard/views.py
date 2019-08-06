@@ -4,8 +4,8 @@ from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django_apps.article.models import Article
-from django_apps.article.serializers import ArticleSerializer
+from noticeboard.models import Article
+from noticeboard.serializers import ArticleSerializer
 
 
 @swagger_auto_schema(methods=['get', 'post'], request_body=ArticleSerializer)
