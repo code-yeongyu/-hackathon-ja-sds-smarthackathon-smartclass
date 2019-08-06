@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from noticeboard.models import Profile
+from noticeboard.models import Aticle
 
 
 class ArticleSerializer(serializers.ModelSerializer):
