@@ -10,10 +10,13 @@ from noticeboard.models import Article
 from noticeboard.serializers import ArticleSerializer
 
 
-@swagger_auto_schema(methods=['get', 'post'], request_body=ArticleSerializer)
 class ArticleList(generics.ListAPIView, APIView):
     """
-    게시글 리스트 조회 및 작성
+        선생님용 게시판
+
+        ---
+        # 내용
+            - content: 게시글 내용
     """
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
