@@ -13,6 +13,16 @@ from custom_profile.forms import SignUpForm
 
 
 class ProfileOverall(APIView):  # 자신의 프로필
+    """
+        본인 프로필 조회 및 수정
+        
+        ---
+        # 내용
+            - is_admin : 관리자 여부
+            - student_id : 바코드에 있는 학생증 정보
+            - class_id : 반 고유 코드 (아두이노 ID)
+            - bio : 한줄소개. ex) 선린인터넷고등학교 1학년 3반
+    """
     def get(self, request):  # 프로필 조회
         if request.user.is_authenticated:
             try:
