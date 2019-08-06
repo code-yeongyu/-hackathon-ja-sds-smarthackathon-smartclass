@@ -28,7 +28,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     url(r'^api/image/', include('image_handle.urls')),
     url(r'^api/profiles/', include('custom_profile.urls')),
-    url(r'^swagger(?P<format>\.json|\.yaml)$',
+    # swagger ui
+    url(r'^swagger(?P<fm>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0),
         name='schema-json'),
     url(r'^swagger/$',
