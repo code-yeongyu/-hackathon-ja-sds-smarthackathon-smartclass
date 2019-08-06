@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.admin', 'django.contrib.auth',
     'django.contrib.contenttypes', 'django.contrib.sessions',
     'django.contrib.messages', 'django.contrib.staticfiles', 'rest_framework',
-    'imagekit', 'pilkit', 'custom_profile', 'drf_yasg', 'image_handle',
+    'imagekit', 'pilkit', 'custom_profile', 'drf_yasg', 'class_status',
     'noticeboard'
 ]
 

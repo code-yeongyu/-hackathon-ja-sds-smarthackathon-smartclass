@@ -4,8 +4,6 @@ from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from drf_yasg.utils import swagger_auto_schema
-
 from noticeboard.models import Article
 from noticeboard.serializers import ArticleSerializer
 
