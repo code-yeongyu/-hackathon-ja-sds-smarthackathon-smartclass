@@ -1,0 +1,11 @@
+cd ~/;
+mv sc old;
+cp -r ~/old/backend/db.sqlite3 ~/;
+cd ~/;
+sudo rm -r old;
+git clone https://github.com/kim-yeon-gyu-exlock/ja-sds-smarthackathon-smartclass;mv ja-sds-smarthackathon-smartclass sc;
+cp -r ~/yolo-human/yolo-coco/ ~/sc/backend/;
+mv ~/db.sqlite3 ~/sc/backend/;
+cd ~/sc/backend;
+python3 manage.py makemigrations;
+python3 manage.py migrate;
