@@ -6,8 +6,6 @@ from rest_framework import permissions
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.authtoken import views
 
-import image_handle.views as image
-
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
