@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django_apps.article import views
+from noticeboard import views
 
 urlpatterns = [
     #url(r'^images/(?P<pk>[0-9]+)/$', views.image),  # 이미지를 얻는 라우트
