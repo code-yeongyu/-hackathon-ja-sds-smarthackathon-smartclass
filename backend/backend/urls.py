@@ -5,10 +5,10 @@ from django.views.generic import TemplateView
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.authtoken import views
 
-from for_test import views
+import image_handle.views as image
 
 urlpatterns = [
-    url(r'^$', views.test),
+    url(r'^api/image/', include('image_handle.urls')),
     url(r'^api/profiles/', include('custom_profile.urls')),
 ]
 

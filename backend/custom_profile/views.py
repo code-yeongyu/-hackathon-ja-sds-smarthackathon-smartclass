@@ -50,11 +50,6 @@ class ProfileOverall(APIView):  # 자신의 프로필
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view(['GET'])
-def test(request):
-    return Response(status=status.HTTP_200_OK)
-
-
 @api_view(['POST'])
 def sign_up(request):  # 회원가입
     form = SignUpForm(request.POST)
