@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from image_handle.models import Status
+from class_status.models import Status
 
 
 class StatusSerializer(serializers.ModelSerializer):
