@@ -7,6 +7,8 @@ from rest_framework.views import APIView
 from noticeboard.models import Article
 from noticeboard.serializers import ArticleSerializer
 
+from drf_yasg import swagger_auto_schema
+
 
 @swagger_auto_schema(methods=['get', 'post'], request_body=ArticleSerializer)
 class ArticleList(generics.ListAPIView, APIView):
